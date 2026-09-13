@@ -51,10 +51,10 @@
 
 ## PNG 渲染要求
 
-如果要输出 PNG，当前辅助脚本默认依赖本地 Google Chrome：
+输出 PNG 时自动发现本机 Chrome、Chromium 或 Edge；可用 CHROME_BIN 显式指定可执行文件：
 
 ```text
-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+CHROME_BIN (optional explicit executable)
 ```
 
 ## 仓库结构
@@ -77,3 +77,5 @@ examples/
 ## License
 
 [MIT](./LICENSE)
+
+PNG capture uses `skills/editorial-card-screenshot/scripts/capture_card.py`: Python 3 discovers installed Chrome, Chromium or Edge on PATH and standard Windows/macOS locations. Set CHROME_BIN to override. No browser download or existing user profile is used.

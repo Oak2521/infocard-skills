@@ -1,7 +1,7 @@
 ---
 name: editorial-card-screenshot
 description: "Generate high-density editorial HTML info cards in a modern magazine and Swiss-international style, then capture them as ratio-specific screenshots. Use when the user provides text or core information and wants: (1) a complete responsive HTML info card, (2) the design to follow the stored editorial prompt, (3) output in fixed visual ratios such as 3:4, 4:3, 1:1, 16:9, 9:16, 2.35:1, 3:1, or 5:2, or (4) both HTML and a rendered PNG cover/card from the same content."
-metadata: {"clawdbot":{"requires":{"bins":["google-chrome","chromium","chrome"]}}}
+metadata: {"clawdbot":{"requires":{"bins":["python3"]}}}
 ---
 
 # Editorial Card Screenshot
@@ -166,13 +166,13 @@ Use these structural heuristics when composing the card:
 
 Use the bundled shell script when the user wants a PNG output:
 ```bash
-./scripts/capture_card.sh input.html output.png 3:4
+python scripts/capture_card.py input.html output.png 3:4
 ```
 
 Supported ratios and render sizes live in [references/ratios.md](references/ratios.md).
 
 The rendering helper requires a local Chrome or Chromium binary.
-It first respects `CHROME_BIN` when set, then falls back to common binary names and a macOS Chrome app path.
+The cross-platform Python helper respects `CHROME_BIN`, then discovers installed Chrome/Chromium/Edge on PATH and standard Windows/macOS locations. It does not download a browser or reuse a logged-in profile. The shell helper delegates to it for compatibility.
 
 Before running the script:
 - Save the generated HTML to a local file.

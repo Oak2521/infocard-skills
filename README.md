@@ -47,10 +47,10 @@ The same source content is reorganized for each target canvas instead of being m
 
 ## Render Requirement
 
-For PNG capture, the current helper expects local Google Chrome at:
+For PNG capture, the helper discovers an installed Chrome, Chromium or Edge; optionally set:
 
 ```text
-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+CHROME_BIN (optional explicit executable)
 ```
 
 ## Repository
@@ -73,3 +73,5 @@ examples/
 ## License
 
 [MIT](./LICENSE)
+
+PNG capture uses `skills/editorial-card-screenshot/scripts/capture_card.py`: Python 3 discovers installed Chrome, Chromium or Edge on PATH and standard Windows/macOS locations. Set CHROME_BIN to override. No browser download or existing user profile is used.
