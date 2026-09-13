@@ -2,3 +2,7 @@
 
 # Generated local outputs
 outputs/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
